@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -58,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
         editSobrenome.setText(pessoa.getSobreNome());
         editNomeCurso.setText(pessoa.getNomeCurso());
         editTelefone.setText(pessoa.getTelefone());
+
+        btnbuton_Limpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editNome.setText("");
+                editSobrenome.setText("");
+                editNomeCurso.setText("");
+                editTelefone.setText("");
+            }
+        });
 /*
         dadosPessoa = "Primeiro nome: ";
         dadosPessoa += pessoa.getNome();
