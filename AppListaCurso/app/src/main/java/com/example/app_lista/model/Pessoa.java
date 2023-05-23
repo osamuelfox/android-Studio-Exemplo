@@ -5,13 +5,13 @@ public class Pessoa {
     private String nome;
     private String sobreNome;
     private String nomeCurso;
-    private int telefone;
+    private String telefone;
 
     public Pessoa(){
 
     }
 
-    public Pessoa(String nome, String sobreNome, String nomeCurso, int telefone) {
+    public Pessoa(String nome, String sobreNome, String nomeCurso, String telefone) {
         this.nome = nome;
         this.sobreNome = sobreNome;
         this.nomeCurso = nomeCurso;
@@ -42,11 +42,11 @@ public class Pessoa {
         this.nomeCurso = nomeCurso;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
