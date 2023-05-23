@@ -69,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
                 editTelefone.setText("");
             }
         });
+
+        btnbuton_Finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 /*
         dadosPessoa = "Primeiro nome: ";
         dadosPessoa += pessoa.getNome();
