@@ -1,13 +1,13 @@
 package com.example.app_lista.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.app_lista.R;
 import com.example.app_lista.model.Pessoa;
@@ -17,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
     Pessoa outraPessoa;
 
-    String dadosPessoa;
-    String dadosOutaPessoa;
-
     EditText editNome;
     EditText editSobrenome;
     EditText editNomeCurso;
@@ -28,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnbuton_Limpar;
     Button btnbuton_Salvar;
     Button btnbuton_Finalizar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,39 +74,23 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-/*
-        dadosPessoa = "Primeiro nome: ";
-        dadosPessoa += pessoa.getNome();
-        dadosPessoa += "Sobrenome: ";
-        dadosPessoa += pessoa.getSobreNome();
-        dadosPessoa += "Nome do curso: ";
-        dadosPessoa += pessoa.getNomeCurso();
-        dadosPessoa += "Telefone: ";
-        dadosPessoa += pessoa.getTelefone();*/
 
-        /*dadosOutaPessoa = "Primeiro nome: ";
-        dadosOutaPessoa += outraPessoa.getNome();
-        dadosOutaPessoa += "Sobrenome: ";
-        dadosOutaPessoa += outraPessoa.getNome();
-        dadosOutaPessoa += "Nome do curso: ";
-        dadosOutaPessoa += outraPessoa.getNomeCurso();
-        dadosOutaPessoa += "Telefone: ";
-        dadosOutaPessoa += outraPessoa.getTelefone();*/
+        btnbuton_Salvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                outraPessoa.setNome(editNome.getText().toString());
+                outraPessoa.setNome(editSobrenome.getText().toString());
+                outraPessoa.setNome(editNomeCurso.getText().toString());
+                outraPessoa.setNome(editTelefone.getText().toString());
+
+                Toast.makeText(MainActivity.this, " Salvo ", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         Log.i("ProgramacaoPOO", pessoa.toString());
         Log.i("ProgramacaoPOO", outraPessoa.toString());
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

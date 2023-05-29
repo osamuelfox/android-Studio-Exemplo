@@ -13,11 +13,11 @@
         android:layout_margin="16dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_Sobrenome"
+        android:importantForAutofill="no"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_PrimeiroNome"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/text_PrimeiroNome" />
 
     <EditText
         android:id="@+id/text_PrimeiroNome"
@@ -55,11 +55,11 @@
         android:layout_margin="16dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_TelefoneDeContato"
+        android:importantForAutofill="no"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_NomeDoCurso"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/text_NomeDoCurso" />
 
     <EditText
         android:id="@+id/text_NomeDoCurso"
@@ -68,10 +68,10 @@
         android:layout_margin="16dp"
         android:ems="10"
         android:hint="@string/txt_hint_edit_NomeDoCurso"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Sobrenome"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/text_Sobrenome" />
 
     <Button
         android:id="@+id/button_Limpar"
