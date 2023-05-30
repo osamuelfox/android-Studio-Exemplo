@@ -44,17 +44,17 @@ public class MainActivity extends AppCompatActivity {
         controller = new PessoaController();
         controller.toString();
 
-        pessoa = new Pessoa();
+/*      pessoa = new Pessoa();
         pessoa.setNome("Samuel");
         pessoa.setSobreNome("Santos");
         pessoa.setNomeCurso("Tecnico");
-        pessoa.setTelefone("4422478");
+        pessoa.setTelefone("4422478");*/
 
         outraPessoa = new Pessoa();
-        outraPessoa.setNome("Ana");
-        outraPessoa.setSobreNome("Santos");
-        outraPessoa.setNomeCurso("Estatica");
-        outraPessoa.setTelefone("4534454");
+        outraPessoa.setNome(preferences.getString("primeiroNome", ""));
+        outraPessoa.setSobreNome(preferences.getString("sobreNome", ""));
+        outraPessoa.setNomeCurso(preferences.getString("nomeCurso", ""));
+        outraPessoa.setTelefone(preferences.getString("telefone", ""));
 
         editNome = findViewById(R.id.text_PrimeiroNome);
         editSobrenome = findViewById(R.id.text_Sobrenome);
@@ -65,10 +65,17 @@ public class MainActivity extends AppCompatActivity {
         btnbuton_Salvar = findViewById(R.id.button_Salvar);
         btnbuton_Finalizar = findViewById(R.id.button_Finalizar);
 
-        editNome.setText(pessoa.getNome());
+        editNome.setText(outraPessoa.getNome());
+        editSobrenome.setText(outraPessoa.getSobreNome());
+        editTelefone.setText(outraPessoa.getTelefone());
+        editNomeCurso.setText(outraPessoa.getNomeCurso());
+
+
+
+ /*     editNome.setText(pessoa.getNome());
         editSobrenome.setText(pessoa.getSobreNome());
         editNomeCurso.setText(pessoa.getNomeCurso());
-        editTelefone.setText(pessoa.getTelefone());
+        editTelefone.setText(pessoa.getTelefone());*/
 
         btnbuton_Limpar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log.i("ProgramacaoPOO", pessoa.toString());
+        //Log.i("ProgramacaoPOO", pessoa.toString());
         Log.i("ProgramacaoPOO", outraPessoa.toString());
 
     }
