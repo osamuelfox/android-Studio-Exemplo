@@ -1,5 +1,6 @@
 package com.example.app_lista.view;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,9 @@ import com.example.app_lista.controller.PessoaController;
 import com.example.app_lista.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_listavip";
 
     Pessoa pessoa;
     Pessoa outraPessoa;
@@ -33,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
+        SharedPreferences.Editor listaVip = preferences.edit();
+
         controller = new PessoaController();
         controller.toString();
 
@@ -92,7 +100,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, " Salvo ", Toast.LENGTH_SHORT).show();
                 controller.salvar(outraPessoa);
 
+                listaVip.putString("primeiroNome", outraPessoa.getNome());
+                listaVip.putString("sobreNome", outraPessoa.getSobreNome());
+                listaVip.putString("nomeCurso", outraPessoa.getNomeCurso());
+                listaVip.putString("telefone", outraPessoa.getTelefone());
+                listaVip.apply();
 
+                controller.salvar(outraPessoa);
             }
         });
 
