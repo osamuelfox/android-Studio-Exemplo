@@ -17,6 +17,9 @@ import com.example.app_lista.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
+
+    SharedPreferences.Editor listaVip;
+
     public static final String NOME_PREFERENCES = "pref_listavip";
 
     Pessoa pessoa;
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = getSharedPreferences(NOME_PREFERENCES, 0);
-        SharedPreferences.Editor listaVip = preferences.edit();
+        listaVip = preferences.edit();
 
         controller = new PessoaController();
         controller.toString();
@@ -67,10 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
         editNome.setText(outraPessoa.getNome());
         editSobrenome.setText(outraPessoa.getSobreNome());
-        editTelefone.setText(outraPessoa.getTelefone());
         editNomeCurso.setText(outraPessoa.getNomeCurso());
-
-
+        editTelefone.setText(outraPessoa.getTelefone());
 
  /*     editNome.setText(pessoa.getNome());
         editSobrenome.setText(pessoa.getSobreNome());
@@ -84,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 editSobrenome.setText("");
                 editNomeCurso.setText("");
                 editTelefone.setText("");
+                listaVip.clear();
+                listaVip.apply();
             }
         });
 
@@ -100,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 outraPessoa.setNome(editNome.getText().toString());
-                outraPessoa.setNome(editSobrenome.getText().toString());
-                outraPessoa.setNome(editNomeCurso.getText().toString());
-                outraPessoa.setNome(editTelefone.getText().toString());
+                outraPessoa.setSobreNome(editSobrenome.getText().toString());
+                outraPessoa.setNomeCurso(editNomeCurso.getText().toString());
+                outraPessoa.setTelefone(editTelefone.getText().toString());
 
                 Toast.makeText(MainActivity.this, " Salvo ", Toast.LENGTH_SHORT).show();
                 controller.salvar(outraPessoa);
