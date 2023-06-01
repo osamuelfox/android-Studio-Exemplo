@@ -47,12 +47,6 @@ public class MainActivity extends AppCompatActivity {
         controller = new PessoaController();
         controller.toString();
 
-/*      pessoa = new Pessoa();
-        pessoa.setNome("Samuel");
-        pessoa.setSobreNome("Santos");
-        pessoa.setNomeCurso("Tecnico");
-        pessoa.setTelefone("4422478");*/
-
         outraPessoa = new Pessoa();
         outraPessoa.setNome(preferences.getString("primeiroNome", ""));
         outraPessoa.setSobreNome(preferences.getString("sobreNome", ""));
@@ -73,12 +67,7 @@ public class MainActivity extends AppCompatActivity {
         editNomeCurso.setText(outraPessoa.getNomeCurso());
         editTelefone.setText(outraPessoa.getTelefone());
 
- /*     editNome.setText(pessoa.getNome());
-        editSobrenome.setText(pessoa.getSobreNome());
-        editNomeCurso.setText(pessoa.getNomeCurso());
-        editTelefone.setText(pessoa.getTelefone());*/
-
-        btnbuton_Limpar.setOnClickListener(new View.OnClickListener() {
+       btnbuton_Limpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 editNome.setText("");
@@ -120,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Log.i("ProgramacaoPOO", pessoa.toString());
         Log.i("ProgramacaoPOO", outraPessoa.toString());
 
     }
