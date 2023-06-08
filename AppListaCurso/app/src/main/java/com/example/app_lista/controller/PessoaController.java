@@ -11,7 +11,6 @@ import com.example.app_lista.view.MainActivity;
 public class PessoaController {
 
     SharedPreferences preferences;
-
     SharedPreferences.Editor listaVip;
 
     public static final String NOME_PREFERENCES = "pref_listavip";
@@ -20,8 +19,6 @@ public class PessoaController {
 
         preferences = mainActivity.getSharedPreferences(NOME_PREFERENCES, 0);
         listaVip = preferences.edit();
-
-
     }
 
     @NonNull
@@ -31,7 +28,7 @@ public class PessoaController {
         return super.toString();
     }
 
-    public void salvar(Pessoa outraPessoa) {
+    public Pessoa salvar(Pessoa outraPessoa) {
 
         Log.d("MVP_MVC_controller", "Salvo: " + outraPessoa.toString());
 
@@ -40,6 +37,7 @@ public class PessoaController {
         listaVip.putString("nomeCurso", outraPessoa.getNomeCurso());
         listaVip.putString("telefone", outraPessoa.getTelefone());
         listaVip.apply();
+        return outraPessoa;
     }
 
 
@@ -56,39 +54,4 @@ public class PessoaController {
         listaVip.apply();
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
