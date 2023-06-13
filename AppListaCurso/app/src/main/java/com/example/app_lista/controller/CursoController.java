@@ -1,19 +1,37 @@
 package com.example.app_lista.controller;
 
+import com.example.app_lista.model.Curso;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CursoController {
 
-    private List<String> cursos = new ArrayList<>(
-            Arrays.asList("Tecnico", "Faculdade", "OAB"));
+//    private List<String> cursos = new ArrayList<>(
+//            Arrays.asList("Desenvolvimento ", "Enfermagem", "Moda", "Odonto", "Administracao", "Informatica", "Estetica"));
+//
+//    public List<String> getCursos() {
+//        return cursos;
+//    }
+//
+//    public void setCursos(List<String> cursos) {
+//        this.cursos = cursos;
+//    }
 
-    public List<String> getCursos() {
-        return cursos;
-    }
+    private List listaCurso;
+    public List getListaCurso(){
 
-    public void setCursos(List<String> cursos) {
-        this.cursos = cursos;
+        listaCurso = new ArrayList<Curso>();
+
+        listaCurso.add(new Curso("Informatica"));
+        listaCurso.add(new Curso("Desenvolvimento"));
+        listaCurso.add(new Curso("Enfermagem"));
+        listaCurso.add(new Curso("Administracao"));
+        listaCurso.add(new Curso("Moda"));
+        listaCurso.add(new Curso("Culinaria"));
+        listaCurso.add(new Curso("Catira"));
+        listaCurso.add(new Curso("Jogo do Bicho"));
+
+        return listaCurso;
     }
 }

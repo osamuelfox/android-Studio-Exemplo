@@ -3,10 +3,8 @@ package com.example.app_lista.view;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,14 +12,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_lista.R;
 import com.example.app_lista.controller.CursoController;
 import com.example.app_lista.controller.PessoaController;
+import com.example.app_lista.model.Curso;
 import com.example.app_lista.model.Pessoa;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
     Pessoa outraPessoa;
+    List<Curso> listaCursos;
 
     PessoaController controller;
+    CursoController cursoController;
 
     EditText editNome;
     EditText editSobrenome;
@@ -39,9 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
         CursoController cursoController = new CursoController();
 
-        Spinner listaDeCursos = findViewById(R.id.ListaSpinner);
-        listaDeCursos.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,cursoController.getCursos()));
+        listaCursos = cursoController.getListaCurso();
 
+        cursoController.getListaCurso();
+//
+//        Spinner listaDeCursos = findViewById(R.id.ListaSpinner);
+//        listaDeCursos.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,cursoController.getCursos()));
 
         controller = new PessoaController(MainActivity.this);
         controller.toString();
