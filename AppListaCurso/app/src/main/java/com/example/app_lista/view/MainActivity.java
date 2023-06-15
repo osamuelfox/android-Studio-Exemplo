@@ -3,8 +3,10 @@ package com.example.app_lista.view;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_lista.R;
 import com.example.app_lista.controller.CursoController;
 import com.example.app_lista.controller.PessoaController;
-import com.example.app_lista.model.Curso;
 import com.example.app_lista.model.Pessoa;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
     Pessoa outraPessoa;
-    List<Curso> listaCursos;
+    List<String> nomesDoCurso;
 
     PessoaController controller;
     CursoController cursoController;
@@ -35,14 +36,16 @@ public class MainActivity extends AppCompatActivity {
     Button btnbuton_Salvar;
     Button btnbuton_Finalizar;
 
+    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CursoController cursoController = new CursoController();
+        cursoController = new CursoController();
 
-        listaCursos = cursoController.getListaCurso();
+        nomesDoCurso = cursoController.dadosSpinner();
 
         cursoController.getListaCurso();
 //
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         editNomeCurso = findViewById(R.id.text_NomeDoCurso);
         editTelefone = findViewById(R.id.text_TelefoneDeContato);
 
+        spinner = findViewById(R.id.ListaSpinner);
+
         btnbuton_Limpar = findViewById(R.id.button_Limpar);
         btnbuton_Salvar = findViewById(R.id.button_Salvar);
         btnbuton_Finalizar = findViewById(R.id.button_Finalizar);
@@ -68,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
         editSobrenome.setText(outraPessoa.getSobreNome());
         editNomeCurso.setText(outraPessoa.getNomeCurso());
         editTelefone.setText(outraPessoa.getTelefone());
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+
+        cursoController.dadosSpinner();
+
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        spinner.setAdapter(adapter);
 
         btnbuton_Limpar.setOnClickListener(new View.OnClickListener() {
             @Override
