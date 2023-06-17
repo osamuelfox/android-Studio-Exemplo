@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_spinner);
 
         cursoController = new CursoController();
 
@@ -74,11 +74,10 @@ public class MainActivity extends AppCompatActivity {
         editNomeCurso.setText(outraPessoa.getNomeCurso());
         editTelefone.setText(outraPessoa.getTelefone());
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-
-        cursoController.dadosSpinner();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,cursoController.dadosSpinner());
 
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+
         spinner.setAdapter(adapter);
 
         btnbuton_Limpar.setOnClickListener(new View.OnClickListener() {
