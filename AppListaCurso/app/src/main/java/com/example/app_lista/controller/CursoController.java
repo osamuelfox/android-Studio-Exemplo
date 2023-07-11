@@ -7,19 +7,8 @@ import java.util.List;
 
 public class CursoController {
 
-//    private List<String> cursos = new ArrayList<>(
-//            Arrays.asList("Desenvolvimento ", "Enfermagem", "Moda", "Odonto", "Administracao", "Informatica", "Estetica"));
-//
-//    public List<String> getCursos() {
-//        return cursos;
-//    }
-//
-//    public void setCursos(List<String> cursos) {
-//        this.cursos = cursos;
-//    }
-
     private List listaCurso;
-    public List getListaCurso(){
+    public List ListaCurso(){
 
         listaCurso = new ArrayList<Curso>();
 
@@ -37,8 +26,8 @@ public class CursoController {
 
     public ArrayList<String> dadosSpinner(){
         ArrayList<String> dados = new ArrayList<>();
-        for (int i = 0; i < getListaCurso().size();i++ ){
-            Curso objeto = (Curso) getListaCurso().get(i);
+        for (int i = 0; i < ListaCurso().size(); i++ ){
+            Curso objeto = (Curso) ListaCurso().get(i);
             dados.add(objeto.getCursoDesejado());
 
         }

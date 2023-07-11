@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_lista.R;
 import com.example.app_lista.controller.CursoController;
 import com.example.app_lista.controller.PessoaController;
+import com.example.app_lista.database.Lista_DB;
+import com.example.app_lista.model.Curso;
 import com.example.app_lista.model.Pessoa;
 
 import java.util.List;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
     Pessoa outraPessoa;
+    Curso curso;
     List<String> nomesDoCurso;
 
     PessoaController controller;
@@ -38,16 +41,22 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner spinner;
 
+    Lista_DB lista_db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner);
 
+        Lista_DB db = new Lista_DB(getBaseContext());
+
         cursoController = new CursoController();
 
         nomesDoCurso = cursoController.dadosSpinner();
 
-        cursoController.getListaCurso();
+        cursoController.ListaCurso();
+
+        Curso curso = new Curso();
 //
 //        Spinner listaDeCursos = findViewById(R.id.ListaSpinner);
 //        listaDeCursos.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,cursoController.getCursos()));
@@ -58,13 +67,15 @@ public class MainActivity extends AppCompatActivity {
         outraPessoa = new Pessoa();
         controller.buscar(outraPessoa);
 
+        CursoController cursoController = new CursoController();
+
         editNome = findViewById(R.id.text_PrimeiroNome);
         editSobrenome = findViewById(R.id.text_Sobrenome);
         editNomeCurso = findViewById(R.id.text_NomeDoCurso);
         editTelefone = findViewById(R.id.text_TelefoneDeContato);
 
         spinner = findViewById(R.id.ListaSpinner);
-
+        
         btnbuton_Limpar = findViewById(R.id.button_Limpar);
         btnbuton_Salvar = findViewById(R.id.button_Salvar);
         btnbuton_Finalizar = findViewById(R.id.button_Finalizar);
@@ -106,9 +117,10 @@ public class MainActivity extends AppCompatActivity {
                 outraPessoa.setSobreNome(editSobrenome.getText().toString());
                 outraPessoa.setNomeCurso(editNomeCurso.getText().toString());
                 outraPessoa.setTelefone(editTelefone.getText().toString());
+                curso.setCursoDesejado(spinner.getSelectedItem().toString());
 
                 Toast.makeText(MainActivity.this, " Salvo ", Toast.LENGTH_SHORT).show();
-                controller.salvar(outraPessoa);
+                controller.salvar(outraPessoa, curso);
 
             }
         });
